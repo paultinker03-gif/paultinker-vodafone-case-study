@@ -1,0 +1,82 @@
+/* Vodafone theme on the shared case study template.
+   Red is Vodafone's #e60000, darkened to #bd0000 for text and buttons so it passes WCAG AA on white. */
+:root { --accent: #bd0000; --navy: #25282b; --tint: #f4f4f4; --line: #e3e3e3; }
+.role-ds { background: #25282b; color: #f2f2f2; }
+.role-ds li::before { background: #ff6b6b; }
+.button:hover { background: #8f0000; }
+.top .back, a { color: var(--accent); }
+.foot-links a { color: var(--accent); }
+
+/* Carousel panels: light grey and a pale Vodafone red only. */
+.carousel-bordered .carousel-track { background: transparent; }
+.carousel-steps .slide:nth-child(odd) .slide-caption { background: #f4f4f4; }
+.carousel-steps .slide:nth-child(even) .slide-caption { background: #fbeeee; }
+.carousel-steps .slide-caption { border-top: 0; }
+
+/* Three numbers in a row. */
+.stats.stats-3 { grid-template-columns: repeat(3, 1fr); max-width: calc(var(--wide) * 3 / 4); margin-left: max(0px, calc((100% - var(--wide)) / 2)); }
+@media (max-width: 900px) { .stats.stats-3 { grid-template-columns: repeat(3, 1fr); margin-left: 0; max-width: none; } }
+@media (max-width: 560px) { .stats.stats-3 { grid-template-columns: 1fr 1fr; } }
+
+/* Looping videos with a pause button. */
+.loop-video .video-frame { position: relative; border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px var(--line); }
+.loop-video video { display: block; width: 100%; height: auto; }
+.video-toggle { position: absolute; right: 14px; bottom: 14px; font: inherit; font-size: 15px; font-weight: 700; color: #fff; background: rgba(37,40,43,.82); border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+.video-toggle:hover { background: #25282b; }
+
+/* The InVision article overlay. */
+.article-overlay { width: min(920px, 100vw - 32px); max-height: calc(100vh - 32px); padding: 0; border: 0; border-radius: 16px; background: #fff; color: var(--ink); box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+.article-overlay::backdrop { background: rgba(20,20,20,.72); }
+.article-overlay[open] { display: flex; flex-direction: column; }
+.article-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 24px 28px 18px; border-bottom: 1px solid var(--line); }
+.article-head h2 { font-size: var(--fs-h3); margin-top: 6px; }
+.article-close { font-family: inherit; flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #b8b8b8; background: #fff; font-size: 26px; line-height: 1; cursor: pointer; color: #000; }
+.article-close:hover { border-color: #000; }
+.article-body { overflow-y: auto; padding: 22px 28px 28px; }
+.article-summary { margin: 0 0 20px; font-size: var(--fs-body); }
+.article-body img { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 0 0 1px var(--line); }
+@media (max-width: 600px) { .article-head { padding: 18px 18px 14px; } .article-body { padding: 16px 18px 22px; } }
+
+/* Vodafone type: Source Sans 3, the open stand-in Source uses for the Vodafone typeface.
+   Light display weight for the title, as Vodafone does; semibold for section headings. The top bar keeps Paul's own fonts. */
+@font-face { font-family: 'Source Sans 3'; src: url('fonts/source-sans-3.woff2') format('woff2'); font-weight: 300 700; font-display: swap; }
+body, p, li, figcaption, dt, dd, .button, .tablist button, .carousel-controls, .video-toggle,
+.slide-caption, .slide-caption span, .eyebrow, .board-eyebrow, .stat span, .cta-note, .rebuild-note, .foot-links, .article-summary {
+  font-family: 'Source Sans 3', -apple-system, 'Segoe UI', Arial, sans-serif; }
+h1, h2, h3, .role-label, .stat b, .board-title,
+.slide-caption strong, .carousel-steps .slide-caption strong {
+  font-family: 'Source Sans 3', -apple-system, 'Segoe UI', Arial, sans-serif; font-weight: 600; letter-spacing: -0.01em; }
+.intro h1 { font-weight: 300; letter-spacing: -0.02em; }
+.stat b { font-weight: 300; }
+/* Captions under the wide carousels: white on every slide. */
+.carousel-steps .slide:nth-child(even) .slide-caption, .carousel-steps .slide:nth-child(odd) .slide-caption { background: #fff; }
+
+/* Design systems panel: light pink (the TOBi kit background), not black. */
+.role-ds { background: #f8e6e6; color: var(--ink); }
+.role-ds .role-label { color: var(--navy); }
+.role-ds li { border-top-color: rgba(0,0,0,.08); }
+.role-ds li::before { background: var(--accent); }
+
+/* What Vodafone taught me: the same light pink. */
+.learned { background: #f8e6e6; }
+
+/* Product screens carousel: the project above each screen title. */
+.slide-caption .slide-project { display: block; margin-bottom: 8px; font-size: var(--fs-label); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+
+/* Anything in the shared template that still asks for Smart's Mulish or Lato gets Source Sans 3. */
+@font-face { font-family: 'Mulish'; src: url('fonts/source-sans-3.woff2') format('woff2'); font-weight: 300 800; font-display: swap; }
+@font-face { font-family: 'Lato'; src: url('fonts/source-sans-3.woff2') format('woff2'); font-weight: 300 700; font-display: swap; }
+.carousel-screens .slide-caption strong { font-family: 'Source Sans 3', -apple-system, 'Segoe UI', Arial, sans-serif; font-weight: 600; }
+/* Caption titles sit under the image, so they stay a step below the section h3. */
+.slide-caption strong, .carousel-screens .slide-caption strong, .carousel-laptop .slide-caption strong,
+.carousel-pair .slide-caption strong, .carousel-ba .slide-caption strong, .carousel-steps .slide-caption strong {
+  font-size: clamp(20px, 1.7vw, 22px); line-height: 1.25; margin-bottom: 6px; }
+/* Keyline round each wide slide, so the white caption reads as part of the card. */
+.carousel-steps .slide { border: 1px solid #dcdcdc; border-radius: 14px; overflow: hidden; }
+.carousel-steps .slide-media img { border-radius: 0; }
+.carousel-steps .slide-caption { border-radius: 0; }
+/* The Team line runs on its own row at the body text width. */
+.meta .meta-team { flex-basis: 100%; max-width: calc((100% + 24px) * 10 / 12 - 24px); }
+@media (max-width: 760px) { .meta .meta-team { max-width: none; } }
+/* The stats already close the intro, so the first chapter doesn't need full chapter spacing (matches Smart). */
+.stats + .chapter { padding-top: 72px; }

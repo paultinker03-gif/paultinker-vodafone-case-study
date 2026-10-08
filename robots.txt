@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vodafone.paultinker.uk/sitemap.xml
