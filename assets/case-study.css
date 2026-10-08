@@ -336,3 +336,4 @@ p, li, figcaption { text-wrap: pretty; }
 .meta, .role ul { font-size: var(--fs-body); }
 .role li::before { top: 16px; }
 .meta { max-width: none; gap: 10px 48px; }
+h1[tabindex="-1"]:focus { outline: none; }
