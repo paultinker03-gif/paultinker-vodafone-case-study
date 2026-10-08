@@ -80,3 +80,6 @@ h1, h2, h3, .role-label, .stat b, .board-title,
 @media (max-width: 760px) { .meta .meta-team { max-width: none; } }
 /* The stats already close the intro, so the first chapter doesn't need full chapter spacing (matches Smart). */
 .stats + .chapter { padding-top: 72px; }
+/* The three numbers centred on the page. */
+.stats.stats-3 { margin-left: auto !important; margin-right: auto !important; max-width: calc(var(--wide) * 3 / 4); }
+@media (max-width: 900px) { .stats.stats-3 { max-width: none; } }
