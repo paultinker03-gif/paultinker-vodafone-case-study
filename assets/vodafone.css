@@ -4,6 +4,8 @@
 .role-ds { background: #25282b; color: #f2f2f2; }
 .role-ds li::before { background: #ff6b6b; }
 .button:hover { background: #8f0000; }
+.button-secondary { background: #fff; color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); }
+.button-secondary:hover { background: #fdeeee; color: #8f0000; box-shadow: inset 0 0 0 2px #8f0000; }
 .top .back, a { color: var(--accent); }
 .foot-links a { color: var(--accent); }
 
