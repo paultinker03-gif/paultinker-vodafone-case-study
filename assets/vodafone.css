@@ -85,3 +85,10 @@ h1, h2, h3, .role-label, .stat b, .board-title,
 /* The three numbers centred on the page. */
 .stats.stats-3 { margin-left: auto !important; margin-right: auto !important; max-width: calc(var(--wide) * 3 / 4); }
 @media (max-width: 900px) { .stats.stats-3 { max-width: none; } }
+
+/* A preview of the InVision article above its button; it opens the same overlay. */
+.article-card { display: block; margin-top: 26px; max-width: 640px; border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 1px var(--line), 0 14px 30px -18px rgba(0,0,0,.35); transition: transform .2s, box-shadow .2s; }
+.article-card img { display: block; width: 100%; height: auto; }
+.article-card:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--line), 0 20px 36px -18px rgba(0,0,0,.4); }
+.article-card + .cta-row { margin-top: 20px !important; }
+@media (prefers-reduced-motion: reduce) { .article-card { transition: none; } .article-card:hover { transform: none; } }
