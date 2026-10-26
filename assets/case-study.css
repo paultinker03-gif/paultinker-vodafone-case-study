@@ -395,3 +395,6 @@ h1[tabindex="-1"]:focus { outline: none; }
 /* TOBi phone: keep it phone-sized next to the text */
 #tobi-today .now-split { grid-template-columns: minmax(0, 1fr) minmax(0, 300px); }
 @media (max-width: 900px) { #tobi-today .now-split { grid-template-columns: 1fr; } #tobi-today .now-media { max-width: 280px; } }
+
+/* TOBi steps carousel spans the full grid like the other wide figures */
+.carousel-steps { max-width: var(--wide); }
