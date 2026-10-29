@@ -92,3 +92,194 @@ h1, h2, h3, .role-label, .stat b, .board-title,
 .article-card:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--line), 0 20px 36px -18px rgba(0,0,0,.4); }
 .article-card + .cta-row { margin-top: 20px !important; }
 @media (prefers-reduced-motion: reduce) { .article-card { transition: none; } .article-card:hover { transform: none; } }
+
+/* TOBi images, shown one after the other rather than as a carousel (Paul) */
+.stills { margin: 40px auto 0; padding: 0 var(--gutter); }
+.stills + .stills { margin-top: 32px; }
+
+/* TOBi today: the live phone (assets/tobi-now.js) sits over the still, same size and shape */
+.now-media[data-tobi-live] { position: relative; }
+.now-media.is-live > img { visibility: hidden; }
+.now-phone { position: absolute; inset: 0; border: 8px solid #cbb3b5; border-radius: 18px; overflow: hidden; background: #fff; }
+.now-phone iframe { display: block; width: 100%; height: 100%; border: 0; }
+.now-pause { position: absolute; left: -52px; bottom: 0; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #c9ced4; background: transparent; display: grid; place-items: center; cursor: pointer; color: #333; }
+.now-pause svg { width: 14px; height: 14px; }
+.now-pause:focus-visible { outline: 2px solid #e60000; outline-offset: 3px; }
+
+/* TOBi stills: the image is the card; its title and line sit freely underneath (Paul) */
+.stills .carousel-track { box-shadow: none; border-radius: 0; overflow: visible; }
+.stills .slide { border: 0; border-radius: 0; overflow: visible; }
+.stills .slide-media img { border-radius: 14px; }
+.stills .slide-caption, .stills .slide:nth-child(n) .slide-caption { background: none; border: 0; padding: 18px 0 0; }
+
+/* Cards for every task, tablet and up (assets/cards-drift.js): a band at content width that drifts */
+.stills.is-drift .slide-media { flex: none; position: relative; aspect-ratio: 16 / 7; overflow: hidden; border-radius: 14px; background: #e9eaec; }
+.stills.is-drift .slide-media img { position: absolute; left: 0; max-width: none; border-radius: 0; will-change: transform; }
+.cd-pause { position: absolute; left: 16px; bottom: 16px; z-index: 1; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #c9ced4; background: #fff; display: grid; place-items: center; cursor: pointer; color: #333; }
+.cd-pause svg { width: 14px; height: 14px; }
+.cd-pause:focus-visible { outline: 2px solid #e60000; outline-offset: 3px; }
+
+/* Products built from Source: side-by-side cards, after Apple's "Explore what's new" carousel.
+   One card per product; add another <article class="sc-card"> to add an example (assets/showcase.js
+   makes the dots). */
+.showcase { max-width: var(--wide); margin: 40px auto 0; padding: 0 var(--gutter); }
+.sc-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; scrollbar-width: none; border-radius: 22px; }
+.sc-track::-webkit-scrollbar { display: none; }
+.sc-track:focus-visible { outline: 2px solid #e60000; outline-offset: 4px; }
+.sc-card { position: relative; flex: 0 0 88%; scroll-snap-align: start; height: clamp(480px, 46vw, 600px); border-radius: 22px; overflow: hidden; display: grid; }
+.sc-card:last-child { margin-right: 12%; }
+.sc-eyebrow { margin: 0 0 10px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.sc-title { margin: 0 0 14px; font-size: clamp(28px, 3vw, 40px); line-height: 1.1; }
+.sc-text { margin: 0; font-size: 17px; line-height: 1.55; }
+.sc-phone { display: block; width: 100%; height: auto; border: .35rem solid #1c1917; border-radius: 1.4rem; background: #fff; }
+
+/* M-Pesa: red, copy on the left, tilted phones running off the card */
+.sc-mpesa { grid-template-columns: minmax(0, 40%) 1fr; align-items: center; background: linear-gradient(135deg, #f00000 0%, #e60000 45%, #b70000 100%); color: #fff; }
+.sc-mpesa .sc-copy { padding: 0 0 0 clamp(28px, 4vw, 56px); position: relative; z-index: 1; }
+.sc-mpesa .sc-eyebrow { color: rgba(255,255,255,.8); }
+.sc-mpesa .sc-title { color: #fff; }
+.sc-mpesa .sc-media { position: relative; height: 100%; }
+.sc-tilt { position: absolute; left: 20%; top: 50%; display: flex; gap: clamp(16px, 2vw, 28px); transform: translateY(-50%) rotate(22deg); }
+.sc-col { display: flex; flex-direction: column; gap: clamp(16px, 2vw, 28px); width: clamp(140px, 13.5vw, 190px); }
+.sc-col:nth-child(2) { margin-top: 38%; }
+.sc-mpesa .sc-phone { box-shadow: 0 30px 60px -20px rgba(60,0,0,.55); }
+
+/* My Vodafone: light, copy on top, four phones in a stepped line rising from the bottom edge */
+.sc-mva { grid-template-rows: auto 1fr; background: #f4f4f4; }
+.sc-mva .sc-copy { padding: clamp(28px, 4vw, 52px) clamp(28px, 4vw, 56px) 0; max-width: 40rem; }
+.sc-mva .sc-eyebrow { color: #e60000; }
+.sc-mva .sc-title { color: #1d1d1b; }
+.sc-mva .sc-media { position: relative; overflow: hidden; }
+.sc-row { position: absolute; left: 50%; top: 28px; display: flex; align-items: flex-start; gap: clamp(14px, 2vw, 26px); transform: translateX(-50%); }
+.sc-row .sc-phone { width: clamp(124px, 12vw, 172px); box-shadow: 0 24px 50px -24px rgba(10,30,60,.45); }
+.sc-row .sc-phone:nth-child(1) { margin-top: 70px; }
+.sc-row .sc-phone:nth-child(2) { margin-top: 0; }
+.sc-row .sc-phone:nth-child(3) { margin-top: 40px; }
+.sc-row .sc-phone:nth-child(4) { margin-top: 100px; }
+
+.sc-controls { display: flex; justify-content: center; margin-top: 22px; }
+.sc-controls.carousel-controls { margin-top: 22px; }
+
+/* phones: one card at a time, copy over the top, smaller phones */
+@media (max-width: 700px) {
+  .sc-card { flex-basis: 100%; height: 620px; }
+  .sc-card:last-child { margin-right: 0; }
+  .sc-mpesa { grid-template-columns: 1fr; grid-template-rows: auto 1fr; align-items: start; }
+  .sc-mpesa .sc-copy { padding: 28px 24px 0; }
+  .sc-col { width: 130px; }
+  .sc-mpesa .sc-media { overflow: hidden; }
+  .sc-tilt { left: 30%; top: 0; transform: rotate(22deg); transform-origin: top center; }
+  .sc-mva .sc-copy { padding: 28px 24px 0; }
+  .sc-row .sc-phone { width: 120px; }
+}
+
+/* Designing TOBi runs paragraph, image, link (Paul): each link sits under its image's caption,
+   on the same left edge */
+.stills-cta { max-width: 1080px; margin: 0 auto; padding: 20px var(--gutter) 0; }
+.stills-cta .cta-row { margin: 0; }
+.chapter > .stills-cta + .text-follow { margin-top: 56px !important; }
+.chapter > .stills + .stills-cta { margin-top: 0 !important; }
+.chapter > .stills-cta { padding-top: 24px !important; padding-bottom: 0 !important; }
+
+/* the cards run on to the edge of the browser, Apple style (Paul): the track spans the full width,
+   starting and snapping at the content's left edge */
+.showcase { max-width: none; padding: 0; --sc-edge: max(var(--gutter), calc((100% - var(--wide)) / 2 + var(--gutter))); }
+.sc-track { padding: 0 var(--sc-edge); scroll-padding-left: var(--sc-edge); border-radius: 0; }
+.sc-card { flex-basis: calc((min(100vw, var(--wide)) - 2 * var(--gutter)) * .88); }
+.sc-card:last-child { margin-right: 0; }
+@media (max-width: 700px) { .sc-card { flex-basis: calc(100vw - 2 * var(--gutter)); } }
+
+/* My Vodafone phones: one level line, centred as a group (Paul) */
+.sc-row { left: 0; right: 0; top: 36px; justify-content: center; transform: none; }
+.sc-row .sc-phone:nth-child(n) { margin-top: 0; flex: none; }
+/* only the first column sits lower, so its top phone (Services, with the photo) shows in full;
+   the second column stays where it was (Paul) */
+@media (min-width: 701px) { .sc-col:first-child { transform: translateY(24%); } }
+/* M-Pesa phones placed as in the M-Pesa launch banner: the second column rides higher than the
+   first (Paul) */
+.sc-col:first-child { transform: none; margin-top: 52%; }
+.sc-col:nth-child(2) { margin-top: 0; }
+@media (min-width: 701px) { .sc-col:first-child { transform: none; } }
+@media (min-width: 701px) { .sc-tilt { transform: translateY(-40%) rotate(22deg); } }
+
+/* M-Pesa card, tablet and up: the four phones placed one by one as in the M-Pesa launch banner
+   (Paul): welcome large on the left, statement running off the top, home and move money below.
+   Centres and width are fractions of the card, so the arrangement holds at any card size. */
+@media (min-width: 701px) {
+  .sc-mpesa .sc-media { position: static; }
+  .sc-mpesa .sc-tilt { position: absolute; inset: 0; transform: none; display: block; gap: 0; }
+  .sc-mpesa .sc-col { display: contents; }
+  /* sized and placed from the card's height, right edge in: the banner is wider than this card, so
+     this keeps the phones the banner's size against the height (--h matches .sc-card's height) */
+  .sc-mpesa { --h: clamp(480px, 46vw, 600px); }
+  .sc-mpesa .sc-phone { position: absolute; width: calc(var(--h) * .278); transform: translate(-50%, -50%) rotate(28deg); }
+  .sc-mpesa .sc-phone[src*="mpesa-welcome"] { left: calc(100% - var(--h) * .817); top: 38%; z-index: 2; }
+  .sc-mpesa .sc-phone[src*="mpesa-statement"] { left: calc(100% - var(--h) * .302); top: 16%; }
+  .sc-mpesa .sc-phone[src*="mpesa-move"] { left: calc(100% - var(--h) * .644); top: 79%; z-index: 1; }
+  .sc-mpesa .sc-phone[src*="mpesa-home"] { left: calc(100% - var(--h) * .213); top: 72%; }
+  .sc-mpesa { grid-template-columns: minmax(0, 35%) 1fr; }
+}
+
+/* My Vodafone App phones at staggered heights again (Paul, 2026-10-28) */
+.sc-row .sc-phone:nth-child(1) { margin-top: 56px; }
+.sc-row .sc-phone:nth-child(2) { margin-top: 0; }
+.sc-row .sc-phone:nth-child(3) { margin-top: 84px; }
+.sc-row .sc-phone:nth-child(4) { margin-top: 28px; }
+@media (max-width: 700px) { .sc-row .sc-phone:nth-child(1) { margin-top: 36px; } .sc-row .sc-phone:nth-child(3) { margin-top: 54px; } .sc-row .sc-phone:nth-child(4) { margin-top: 18px; } }
+
+/* the pink band moves from "What Vodafone taught me" to "TOBi today" (Paul, 2026-10-28) */
+.learned { background: none; padding-top: 0; padding-bottom: 0; }
+#tobi-today { background: #f8e6e6; margin-top: clamp(56px, 8vw, 100px); padding-top: clamp(56px, 8vw, 100px); padding-bottom: clamp(56px, 8vw, 100px); }
+
+/* video pause/play: the same white circle icon button as the TOBi phone (Paul, 2026-10-28) */
+.video-toggle { width: 36px; height: 36px; padding: 0; border-radius: 50%; border: 1px solid #c9ced4; background: #fff; color: #333; display: grid; place-items: center; }
+.video-toggle:hover { background: #f2f2f2; }
+.video-toggle svg { width: 14px; height: 14px; }
+.video-toggle:focus-visible { outline: 2px solid #e60000; outline-offset: 3px; }
+/* TOBi stills larger than the text column (Paul 2026-10-28) */
+.stills.stills-big { max-width: 1600px; }
+/* pull quotes (Paul 2026-10-28) */
+.text blockquote.pull { margin: 40px 0 36px; padding-left: 24px; }
+.text blockquote.pull p { margin: 0; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.25; color: var(--ink); }
+/* lighter quotes: regular weight, only the key phrase bold (Paul); :not(#x) beats shared/fonts.css */
+html body .text blockquote.pull p:not(#x) { font-weight: 400 !important; }
+html body .text blockquote.pull p strong:not(#x) { font-weight: 700 !important; }
+/* showcase eyebrows a little bolder (Paul); :not(#x) beats shared/fonts.css */
+html body .sc-eyebrow:not(#x) { font-weight: 600 !important; }
+/* At a glance (Paul 2026-10-28): role/when/products and the three numbers share one 3-column grid,
+   on the same left edge as the intro; hairline rules over the facts, a heavier rule over the numbers */
+.intro .meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 40px; max-width: none; margin-top: 48px; }
+.intro .meta > div { border-top: 1px solid #dcdcdc; padding-top: 14px; }
+.intro .meta dt { margin-bottom: 6px; color: var(--ink-soft); }
+.intro .meta dd { color: var(--ink); }
+.intro .meta .meta-team { grid-column: 1 / -1; max-width: none; }
+.intro .meta .meta-team dd { max-width: 820px; }
+.stats.stats-3 { max-width: var(--wide) !important; margin-left: auto !important; margin-right: auto !important; padding-top: 48px; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.stats-3 .stat { border-top: 2px solid var(--ink); padding-top: 18px; }
+html body .stats-3 .stat b:not(#x) { font-weight: 700 !important; color: var(--ink); font-size: clamp(44px, 5.4vw, 72px); letter-spacing: -.02em; }
+.stats-3 .stat b small { font-size: .55em; margin-left: .04em; vertical-align: baseline; line-height: 0; }
+.stats-3 .stat span { max-width: 22ch; }
+@media (max-width: 700px) {
+  .intro .meta { grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+  .intro .meta > div:first-child { grid-column: 1 / -1; }
+  .stats.stats-3 { grid-template-columns: 1fr; gap: 28px; }
+}
+/* intro roles: one box, no titles (Paul 2026-10-28) */
+.roles.roles-one { grid-template-columns: 1fr; max-width: 680px; }
+.roles.roles-one { margin-top: 20px; }
+.roles-one .role { padding: 0; background: none; border-radius: 0; }
+.roles-one .role li { border-top: 0; padding: 4px 0 4px 22px; }
+.roles-one .role li::before { top: 13px; }
+/* looping videos: no keyline round the frame, pause button centred under the picture (Paul 2026-10-28) */
+.loop-video .video-frame { box-shadow: none; }
+.loop-video .video-toggle { left: 50%; right: auto; transform: translateX(-50%); }
+/* Source docs carousel on the TOBi demo's pink, with the same grey-pink device border (Paul 2026-10-28) */
+.carousel-docs { padding-block: clamp(36px, 5vw, 64px); box-shadow: 0 0 0 100vmax #f8e6e6; clip-path: inset(0 -100vmax); background: #f8e6e6; }
+.carousel-docs .carousel-track { border: 8px solid #cbb3b5; border-radius: 18px; overflow: hidden; }
+.carousel-docs .carousel-controls button { background: transparent; }
+/* more room between the pull quote and the product showcase (Paul 2026-10-28) */
+.chapter > .text + .showcase { margin-top: 128px !important; }
+@media (max-width: 700px) { .chapter > .text + .showcase { margin-top: 80px !important; } }
+/* Pause buttons: no white fill, just the outline, at 3:1 against the page (Paul 2026-10-29) */
+.video-toggle, .cd-pause, .now-pause { background: transparent; border-color: rgba(0,0,0,.5); color: #25282b; }
+.video-toggle:hover, .cd-pause:hover, .now-pause:hover { background: rgba(0,0,0,.06); }

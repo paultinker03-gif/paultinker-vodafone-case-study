@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vodafone case study · Paul Tinker, product and design systems designer</title>
+<title>Vodafone case study · Paul Tinker, Principal Product Designer · Design Systems</title>
 <meta name="description" content="Paul Tinker, product designer and design systems designer: designing TOBi, Vodafone's AI chatbot, and establishing Source, the design system used by 180+ people across 16 markets.">
 <meta property="og:title" content="Vodafone: from an AI chatbot to a global design system">
 <meta property="og:description" content="TOBi, then Source: a design system used by 180+ people across 16 markets, with around 40% time savings.">
@@ -18,89 +18,91 @@
 <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-KJQHXD9PGP');</script>
 <link rel="icon" href="assets/favicon.png">
 <link rel="preload" href="assets/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/case-study.css">
-<link rel="stylesheet" href="assets/vodafone.css">
+<link rel="stylesheet" href="assets/case-study.css?v=2">
+<link rel="stylesheet" href="assets/vodafone.css?v=43">
+<link rel="stylesheet" href="assets/tobi-play.css?v=14">
+<!-- paultinker 2026: content slides in on arrival (classes set before the first paint) -->
+<script>(function(h){if(matchMedia('(max-width: 700px), (max-height: 500px) and (orientation: landscape)').matches)return;h.classList.add('pt-intro');if(/[?&]via=home/.test(location.search))h.classList.add('pt-from-home');setTimeout(function(){h.classList.add('pt-go')},2500);})(document.documentElement);</script>
+<!-- pt-priority: the title's fonts and the 3D hero load first (desktop only for the 3D) -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="script" crossorigin href="https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.js" media="(min-width: 701px) and (min-height: 501px), (min-width: 701px) and (orientation: portrait)">
+<link rel="preload" as="script" crossorigin href="https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.core.js" media="(min-width: 701px) and (min-height: 501px), (min-width: 701px) and (orientation: portrait)">
+<link rel="stylesheet" href="/_shared/transition.css">
+<link rel="preload" as="font" type="font/woff2" href="/_shared/fonts/inter-400.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/_shared/fonts/lato-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/_shared/fonts/dm-serif-text.woff2" crossorigin>
+<link rel="stylesheet" href="/_shared/fonts.css">
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to the case study</a>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="https://paultinker.uk"><span>Paul Tinker</span><small>Design Systems Product Lead</small></a>
-    <a class="back" href="https://paultinker.uk/#vodafone">Back to portfolio</a>
+    <a class="brand" href="https://paultinker.uk"><span>Paul Tinker</span><small>Principal Product Designer · Design Systems</small></a>
+    <a class="back back-x" href="https://paultinker.uk/#vodafone" aria-label="Back to portfolio" title="Back to portfolio"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></a>
   </div>
   <div class="progress" aria-hidden="true"></div>
 </header>
 
 <main id="main">
+  <figure class="bleed" data-pt-scene>
+    <picture><source media="(min-width: 701px) and (min-height: 501px), (min-width: 701px) and (orientation: portrait)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><img src="images/hero-phone.webp" srcset="images/hero-phone-600.webp 600w, images/hero-phone.webp 1200w" sizes="100vw" width="1200" height="1500" alt="Phones showing TOBi, Vodafone's AI chatbot, and the My Vodafone app: the app's welcome and home screens, TOBi saying hello, and TOBi explaining why a bill is higher." fetchpriority="high"></picture>
+    <figcaption class="rebuild-note">TOBi and Source: Vodafone's AI chatbot on phone and tablet, built from the reusable components of Source, the design system that grew out of it.</figcaption>
+  </figure>
+
   <section class="intro intro-head">
     <p class="eyebrow">Case study · Vodafone</p>
     <h1>From an AI chatbot to a global design system</h1>
-    <p class="lede">I designed TOBi, Vodafone's AI chatbot, then established and led Source, the Design System that grew out of it, used by 180+ people across 16 markets.</p>
-  </section>
-
-  <figure class="bleed">
-    <img src="images/hero.jpg" srcset="images/hero-1000.jpg 1000w, images/hero.jpg 2400w" sizes="100vw" width="2400" height="898" alt="TOBi, Vodafone's AI chatbot, on phone and tablet: the welcome screen, a conversation showing average spend as a chart, and TOBi inside the Vodafone app." fetchpriority="high">
-    <figcaption class="rebuild-note">TOBi, built from reusable conversation components across phone and tablet.</figcaption>
-  </figure>
-
-  <section class="intro intro-more">
-    <p class="intro-p">Vodafone was where I moved from designing individual products to designing the systems behind them. TOBi became the starting point for Source, and I then made sure products like the My Vodafone app and M-Pesa aligned with it.</p>
-    <div class="roles" id="intro-roles">
-      <div class="role role-ds">
-        <p class="role-label">Design systems</p>
-        <ul>
-          <li>Established Source as its sole designer</li>
-          <li>Foundations, components, patterns, assets and documentation</li>
-          <li>Governance, adoption and a network of champions across markets</li>
-        </ul>
-      </div>
-      <div class="role role-pd">
-        <p class="role-label">Product design</p>
-        <ul>
-          <li>TOBi, Vodafone's AI chatbot: conversation, tone and personality</li>
-          <li>Retail and IoT experiences</li>
-          <li>Supporting the teams to apply the Design System to products</li>
-        </ul>
-      </div>
-    </div>
-    <dl class="meta">
+    <p class="lede">I designed TOBi, Vodafone's AI chatbot, then established and led Source, the Design System that grew out of it.</p>
+    <dl class="meta meta-facts">
       <div><dt>Role</dt><dd>Design Lead, Product Design and Design System</dd></div>
       <div><dt>When</dt><dd>Sep 2017 to Jul 2020</dd></div>
-      <div><dt>Products</dt><dd>TOBi and Source</dd></div>
-      <div class="meta-team"><dt>Team</dt><dd>I led the design system and product design, working with product designers on M-Pesa and the My Vodafone app, a UX designer on TOBi, and the front-end team</dd></div>
+      <div><dt>Products</dt><dd>TOBi, Source, My Vodafone app and M&#8209;Pesa</dd></div>
     </dl>
   </section>
 
+  <section class="intro intro-more">
+    <p class="intro-p">Vodafone was where I moved from designing individual products to designing the systems behind them.</p>
+    <div class="roles roles-one" id="intro-roles">
+      <div class="role role-ds">
+        <p class="role-label">Overview</p>
+        <ul>
+          <li>TOBi, Vodafone's AI chatbot: interface, tone and personality</li>
+          <li>Established Source as its sole designer</li>
+          <li>Foundations, components, patterns, assets and documentation</li>
+          <li>Governance and adoption, keeping in regular contact with design champions in each market</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="stats stats-3" aria-label="At a glance">
-    <div class="stat"><b>40%</b><span>Average time saving for projects using Source</span></div>
+    <div class="stat"><b>40<small>%</small></b><span>Average time saving for projects using Source</span></div>
     <div class="stat"><b>16</b><span>Markets actively using Source</span></div>
-    <div class="stat"><b>180+</b><span>People using Source each month</span></div>
+    <div class="stat"><b>180<small>+</small></b><span>People using Source each month</span></div>
   </section>
 
   <section class="chapter" id="tobi">
     <div class="text rv">
       <h2>Designing TOBi</h2>
       <p>Vodafone's contact-centre technology wasn't meeting customer expectations, and customers needed easier ways to access information, support and account services. TOBi was introduced as a conversational AI experience to handle common enquiries and complete tasks without always needing a call centre, but traditional interface patterns didn't translate directly into conversation.</p>
-      <p>I introduced a component and Design System approach specifically for conversational UI: message bubbles, notifications, options, states, content and actions became reusable building blocks that could be assembled into complete journeys, rather than designed from scratch each time. That made the work faster to design, easier to iterate and more consistent as the number of journeys grew.</p>
-      <p class="cta-row"><a class="button button-ext" href="https://tobi.paultinker.uk/demo/" target="_blank" rel="noopener" aria-label="Try the TOBi prototype, opens in a new tab">Try the TOBi prototype<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a><a class="button button-ext button-secondary" href="https://tobi.paultinker.uk/" target="_blank" rel="noopener" aria-label="View the original TOBi kit, opens in a new tab">View the original TOBi kit<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></p>
+      <!-- hidden for now: <p class="cta-row"><a class="button button-ext" href="https://tobi.paultinker.uk/demo/" target="_blank" rel="noopener" aria-label="Try the TOBi prototype, opens in a new tab">Try the TOBi prototype<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></p> -->
     </div>
-    <figure class="carousel carousel-steps carousel-bordered rv" aria-roledescription="carousel" aria-label="TOBi components">
-      
-      <div class="carousel-track" tabindex="0">
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 2">
-          <div class="slide-media"><img class="zoom" src="images/tobi-devices.jpg" width="3600" height="1650" alt="The TOBi conversation on desktop, tablet and phone: on desktop TOBi offers a phone upgrade card, on tablet three plan cards with one recommended, and on the phone the average spend bar chart with quick replies." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><strong>One kit, every screen size</strong><span>Messages, charts, cards and quick replies assembled into the same conversation on phone, tablet and desktop.</span></div>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 2">
-          <div class="slide-media"><img class="zoom" src="images/tobi-cards-wall.jpg" width="3600" height="1650" alt="A wall of TOBi card components and expressions: average spend chart, plans, a recommended plan, a usage survey, live chat, a store finder, a call-back slot picker, a basket and a phone offer, with TOBi smiling, winking and laughing." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><strong>Cards for every task</strong><span>Plans, bills, phones, spend and call-backs: each a card type that could drop into any journey.</span></div>
-        </div>
+    <figure class="tp-play rv" aria-label="The TOBi live demo: a working chat at mobile, tablet and desktop sizes">
+      <div class="tp-panel">
+        <div class="tp-bar"><div class="tp-seg" data-k="bp" role="group" aria-label="Screen size"><button type="button" data-bp="mobile" aria-label="Mobile" title="Mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.8" width="10" height="18.4" rx="2.2"/><path d="M11 18h2"/></svg></button><button type="button" data-bp="tablet" aria-label="Tablet" title="Tablet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M11 18h2"/></svg></button><button type="button" data-bp="desktop" aria-label="Desktop" title="Desktop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.8" y="4.5" width="18.4" height="12" rx="1.6"/><path d="M8.5 20h7M12 16.5V20"/></svg></button></div><div class="tp-seg"><button type="button" data-act="restart" aria-label="Restart the chat" title="Restart the chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5v3.7h3.7"/></svg></button></div></div>
+        <iframe class="tp-frame" data-src="tobi-demo/index.html?v=6" title="TOBi live demo: a working chat with Vodafone's chatbot" loading="lazy"></iframe>
       </div>
-      <div class="carousel-controls">
-        <button class="carousel-prev" type="button" aria-label="Previous image">&larr;</button>
-        <span class="carousel-count" aria-live="polite">1 / 2</span>
-        <button class="carousel-next" type="button" aria-label="Next image">&rarr;</button>
+    </figure>
+    <div class="text rv text-follow">
+      <p>I introduced a component and Design System approach specifically for conversational UI: message bubbles, notifications, options, states, content and actions became reusable building blocks that could be assembled into complete journeys, rather than designed from scratch each time. That made the work faster to design, easier to iterate and more consistent as the number of journeys grew. Plans, bills, phones, spend and call-backs each became a card type that could drop into any journey.</p>
+      <!-- hidden for now: <p class="cta-row"><a class="button button-ext" href="https://tobi.paultinker.uk/" target="_blank" rel="noopener" aria-label="View the original TOBi kit, opens in a new tab">View the original TOBi kit<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></p> -->
+    </div>
+    <figure class="stills stills-big carousel-steps carousel-bordered rv" data-cards-drift>
+      <div class="carousel-track">
+        <div class="slide">
+          <div class="slide-media"><img src="images/tobi-cards-wall-v6-1600.webp" srcset="images/tobi-cards-wall-v6-1600.webp 1600w, images/tobi-cards-wall-v6-3200.webp 3200w" sizes="(min-width: 1700px) 1600px, 100vw" width="3600" height="1650" alt="A wall of TOBi card components and expressions: average spend chart, plans, a recommended plan, a usage survey, live chat, a store finder, a call-back slot picker, a basket and a phone offer, with TOBi whistling, blushing, smiling and laughing." loading="eager" fetchpriority="low" decoding="async"></div>
+        </div>
       </div>
     </figure>
     <div class="text rv text-follow">
@@ -109,7 +111,7 @@
     <figure class="wide loop-video rv">
       <div class="video-frame">
         <video src="video/tobi-expressions.mp4" poster="images/tobi-expressions-poster.jpg" width="1920" height="1080" muted loop playsinline preload="metadata" aria-label="TOBi expressions animating: idle, surprise, wink, yes, no, laugh, sad, blush and more, 21 in all."></video>
-        <button type="button" class="video-toggle" aria-label="Pause animation">Pause</button>
+        <button type="button" class="video-toggle" aria-label="Pause animation"></button>
       </div>
       <figcaption>TOBi's 21 expressions, from idle and wink to laugh and grumpy, designed as part of the system.</figcaption>
     </figure>
@@ -163,48 +165,39 @@
     <div class="text rv">
       <h2>Applying Source to real products</h2>
       <p>The My Vodafone App refresh became Source's first real pilot, large and complex enough to properly test whether the system worked in production. The team adopted the library and began building real experiences with it, creating a feedback loop between product requirements and the system. As the system proved itself, other teams started approaching us: adoption became pull rather than push.</p>
-      <p>Source expanded into very different products: My Vodafone App, M-Pesa, IoT and ecommerce. M-Pesa was particularly interesting: a mobile banking service for customers who often lacked access to traditional banking apps, in a product and customer context very different from what we'd originally designed for. But the same underlying Design System supported it. Teams didn't need to rebuild the foundations; they could focus on the customer problem. That's when I really understood the value of Design Systems: the system doesn't make products identical, it gives teams a better starting point.</p>
+      <p>Source expanded into very different products: My Vodafone App, M-Pesa, IoT and ecommerce. M-Pesa was particularly interesting: a mobile banking service for customers who often lacked access to traditional banking apps, in a product and customer context very different from what we'd originally designed for. But the same underlying Design System supported it. Teams didn't need to rebuild the foundations; they could focus on the customer problem. That's when I really understood the value of Design Systems.</p>
+      <blockquote class="pull"><p>The system doesn't make products identical. It gives teams a better starting point.</p></blockquote>
     </div>
-    <figure class="carousel carousel-screens rv" aria-roledescription="carousel" aria-label="My Vodafone and M-Pesa, built from Source">
-      
-      <div class="carousel-track" tabindex="0">
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 8" style="--slide-bg:#f4f4f4">
-          <div class="slide-media"><img class="zoom" src="images/screens/mva-home.jpg" width="647" height="1400" alt="My Vodafone dashboard: Good morning, Sarah, 30.5GB of 50GB data left, next bill £52.90 due 25 January, my offers and minutes cards, and a Discover card for the iPhone XS on Red Unlimited." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><span class="slide-project">My Vodafone App</span><strong>Dashboard</strong><span>The account at a glance: data left, the next bill and offers, each on a Source dashboard card.</span></div>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 8" style="--slide-bg:#f4f4f4">
-          <div class="slide-media"><img class="zoom" src="images/screens/mva-plan.jpg" width="647" height="1400" alt="My Vodafone plan: Red Unlimited at £35 a month, an active Red Unlimited with Entertainment service showing 5.8 of 12.5GB data and 1.2 of 5GB EU roaming used, and Spotify Premium included." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><span class="slide-project">My Vodafone App</span><strong>My plan</strong><span>Every allowance on one plan card, with a progress bar showing how much is left.</span></div>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 8" style="--slide-bg:#f4f4f4">
-          <div class="slide-media"><img class="zoom" src="images/screens/mva-bill.jpg" width="647" height="1400" alt="My Vodafone bills: a bar chart from June to February, the February bill of £52.90 with roaming and call charges, and a paid January bill." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><span class="slide-project">My Vodafone App</span><strong>My bills</strong><span>Nine months of bills in one chart, with the current bill broken down by charge.</span></div>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 8" style="--slide-bg:#f4f4f4">
-          <div class="slide-media"><img class="zoom" src="images/screens/mva-device.jpg" width="647" height="1400" alt="My Vodafone upgrade: iPhone XS at £49 upfront and £44 a month, steps for phone, colour, plan and checkout with colour current, a gold iPhone, then colour cards with gold chosen and capacity cards with 64GB selected, 256GB for £5 more and 512GB for £10 more a month." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><span class="slide-project">My Vodafone App</span><strong>Upgrade</strong><span>A four-step upgrade journey, with colour and capacity chosen from picker cards.</span></div>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="5 of 8" style="--slide-bg:#f8e6e6">
-          <div class="slide-media"><img class="zoom" src="images/screens/mpesa-home.jpg" width="647" height="1400" alt="M-Pesa home: Hi Abubakar, the M-Pesa account at 50,120 TZS with a toggle, mini statement, send money, pay by M-Pesa and QR code tiles, and a new app message." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><span class="slide-project">M-Pesa</span><strong>Home</strong><span>A different product and market on the same foundations: the balance, a mini statement and the three most-used actions.</span></div>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="6 of 8" style="--slide-bg:#f8e6e6">
-          <div class="slide-media"><img class="zoom" src="images/screens/mpesa-move.jpg" width="647" height="1400" alt="M-Pesa move money: make payment, withdraw cash, international payments, bank transfers and reverse transaction." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><span class="slide-project">M-Pesa</span><strong>Move money</strong><span>Every way to move money in one list, with icons from the Source set.</span></div>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="7 of 8" style="--slide-bg:#f8e6e6">
-          <div class="slide-media"><img class="zoom" src="images/screens/mpesa-payments.jpg" width="647" height="1400" alt="M-Pesa payments: pay bill tab with DHL account 198274656, bill reference 182734, amount 10,000 with the current balance, and a Continue button." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><span class="slide-project">M-Pesa</span><strong>Payments</strong><span>Paying a bill uses Source's standard form pattern: labelled fields, a hint and one primary action.</span></div>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="8 of 8" style="--slide-bg:#f8e6e6">
-          <div class="slide-media"><img class="zoom" src="images/screens/mpesa-services.jpg" width="647" height="1400" alt="M-Pesa services: offer cards for a virtual Mastercard and Songesha, then M-Pawa, Mastercard, Songesha, standing orders and Vodashule in white circles." loading="lazy" decoding="async"></div>
-          <div class="slide-caption"><span class="slide-project">M-Pesa</span><strong>Services</strong><span>Partner offers up top, then a HiFi illustration for each service.</span></div>
-        </div>
+    <figure class="showcase rv" aria-label="Products built from Source">
+      <div class="sc-track" tabindex="0">
+        <article class="sc-card sc-mpesa" aria-label="M-Pesa">
+          <div class="sc-copy">
+            <p class="sc-eyebrow">M-Pesa</p>
+            <h3 class="sc-title">Mobile money, on Source.</h3>
+            <p class="sc-text">The M-Pesa app for customers who often have no bank account: sign up, see a balance and statement, pay a regular contact again in one tap, or send money, pay a bill and withdraw cash. A very different product and market, built on the same foundations as everything else.</p>
+          </div>
+          <div class="sc-media" aria-hidden="false">
+            <div class="sc-tilt">
+              <div class="sc-col"><img class="sc-phone" src="images/screens/mpesa-welcome.jpg?v=5" width="647" height="1400" alt="M-Pesa welcome: the Vodacom and M-Pesa marks over a photo of a smiling woman, with buttons for new M-Pesa users and for people who already use it." loading="lazy" decoding="async"><img class="sc-phone" src="images/screens/mpesa-home.jpg?v=6" width="647" height="1400" alt="M-Pesa home: Hi Abubakar, the M-Pesa account at 10,619,391 TZS, mini statement, send money, pay by M-Pesa and QR code tiles, and a rewards card." loading="lazy" decoding="async"></div>
+              <div class="sc-col"><img class="sc-phone" src="images/screens/mpesa-statement.jpg?v=5" width="647" height="1400" alt="M-Pesa statement: current balance of 1,619,391 TZS, money in and out bars, then each day's bills paid and money received." loading="lazy" decoding="async"><img class="sc-phone" src="images/screens/mpesa-move.jpg?v=6" width="647" height="1400" alt="M-Pesa move money: pay again to Liam, Sarah, Arjun and Maria, then make payment, international payment, add money, scheduled reminders and withdraw cash." loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+        </article>
+        <article class="sc-card sc-mva" aria-label="My Vodafone App">
+          <div class="sc-copy">
+            <p class="sc-eyebrow">My Vodafone App</p>
+            <h3 class="sc-title">Source's first real pilot.</h3>
+            <p class="sc-text">My Vodafone is the app customers use to run their account: check their data, minutes and plan, see and pay their bills, and upgrade their phone. Its refresh was the first product built on Source, big enough to prove the system worked in production. Built with the Source Design System.</p>
+          </div>
+          <div class="sc-media">
+            <div class="sc-row"><img class="sc-phone" src="images/screens/mva-plan.jpg" width="647" height="1400" alt="My Vodafone plan: Red Unlimited at £35 a month, an active Red Unlimited with Entertainment service showing 5.8 of 12.5GB data and 1.2 of 5GB EU roaming used, and Spotify Premium included." loading="lazy" decoding="async"><img class="sc-phone" src="images/screens/mva-home.jpg" width="647" height="1400" alt="My Vodafone dashboard: Good morning, Sarah, 30.5GB of 50GB data left, next bill £52.90 due 25 January, my offers and minutes cards, and a Discover card for the iPhone XS on Red Unlimited." loading="lazy" decoding="async"><img class="sc-phone" src="images/screens/mva-bill.jpg" width="647" height="1400" alt="My Vodafone bills: a bar chart from June to February, the February bill of £52.90 with roaming and call charges, and a paid January bill." loading="lazy" decoding="async"><img class="sc-phone" src="images/screens/mva-device.jpg" width="647" height="1400" alt="My Vodafone upgrade: iPhone XS at £49 upfront and £44 a month, steps for phone, colour, plan and checkout with colour current, a gold iPhone, then colour cards with gold chosen and capacity cards with 64GB selected, 256GB for £5 more and 512GB for £10 more a month." loading="lazy" decoding="async"></div>
+          </div>
+        </article>
       </div>
-      <div class="carousel-controls">
-        <button class="carousel-prev" type="button" aria-label="Previous image">&larr;</button>
-        <span class="carousel-count" aria-live="polite">1 / 8</span>
-        <button class="carousel-next" type="button" aria-label="Next image">&rarr;</button>
+      <div class="sc-controls carousel-controls">
+        <button class="carousel-prev" type="button" aria-label="Previous product">&larr;</button>
+        <span class="carousel-count" aria-live="polite">1 / 2</span>
+        <button class="carousel-next" type="button" aria-label="Next product">&rarr;</button>
       </div>
     </figure>
   </section>
@@ -212,8 +205,10 @@
   <section class="chapter text-only" id="adoption">
     <div class="text rv">
       <h2>Adoption, governance and the case for investment</h2>
-      <p>As more teams adopted Source, I worked directly with markets and product teams on onboarding, adoption, design reviews and library usage, and built a network of Design System champions to support adoption locally. Governance wasn't about controlling what teams could design. It was about creating enough consistency to make the platform useful while still letting teams solve their own customer problems.</p>
-      <p>A Design System needs continued investment, so I regularly shared adoption, reuse and delivery improvements with senior stakeholders to keep the system's value visible beyond the design team. By 2020, Source was used by 180+ people a month across 16 markets, and projects using it saved around 40% of their time. We measured this by surveying the teams that adopted Source, asking how much time they saved against their original project estimates at each stage, from UX to UI. That figure reflected the wider delivery process, not just component production, and it mattered more to me than the size of the library, because it showed the system was changing how teams worked.</p>
+      <p>As more teams adopted Source, I worked directly with markets and product teams on onboarding, design reviews and library usage, and built a network of Design System champions to support adoption locally. Governance wasn't about controlling what teams designed. It was about enough consistency to make the platform useful, while teams still solved their own customer problems.</p>
+      <p>A Design System needs continued investment, so I regularly shared adoption, reuse and delivery improvements with senior stakeholders to keep its value visible beyond the design team.</p>
+      <blockquote class="pull"><p><strong>Around 40% time saved</strong>, measured by surveying the teams that adopted Source against their original project estimates, from UX to UI.</p></blockquote>
+      <p>That figure covered the whole delivery process, not just component production. It mattered more to me than the size of the library, because it showed the system was changing how teams worked.</p>
     </div>
   </section>
 
@@ -225,7 +220,7 @@
     <figure class="wide loop-video rv">
       <div class="video-frame">
         <video src="video/multi-brand.mp4" poster="images/multi-brand-poster.jpg" width="1600" height="1000" muted loop playsinline preload="metadata" aria-label="A screen built from Source components changing brand theme: the same cards, layout and navigation in different colours."></video>
-        <button type="button" class="video-toggle" aria-label="Pause animation">Pause</button>
+        <button type="button" class="video-toggle" aria-label="Pause animation"></button>
       </div>
       <figcaption>One screen, rethemed: the same components and layout taking on a different brand.</figcaption>
     </figure>
@@ -233,7 +228,7 @@
 
   <section class="learned">
     <div class="text rv">
-      <h2>What Vodafone taught me</h2>
+      <h2>What scales, and what doesn&#8217;t</h2>
       <p>Over three years, I went from Product Designer to establishing and leading Source across Vodafone. I wasn't managing a Design System from a distance. I was building it, using it and helping other teams adopt it.</p>
       <p>TOBi taught me that conversation is still an interface. People need to know what's happening, what they can do and what happens next, and a personality only helps if it stays clearly a chatbot. Designing those moments, not just the screens, is product design.</p>
       <p>The biggest opportunity isn't a better individual screen. It's the foundations that let hundreds of experiences get better together. The hard part isn't building the button. It's creating something people want to use and build on.</p>
@@ -251,18 +246,23 @@
         </ul>
         <p class="cta-row"><a class="button button-ext" href="https://ai.paultinker.uk/tobi/" target="_blank" rel="noopener" aria-label="More in my AI log, opens in a new tab">More in my AI log<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></p>
       </div>
-      <figure class="now-media rv"><img class="zoom" src="images/tobi-phone.jpg" srcset="images/tobi-phone-sm.jpg 469w, images/tobi-phone.jpg 938w" sizes="(max-width: 900px) 90vw, 320px" width="938" height="1802" alt="TOBi on a phone. A customer asks why their bill is higher. TOBi says the 5 November bill is £12.50 over plan, shows it checked the bill and call log, and lists what it found: £10.00 for eight calls to 0870 numbers, marked sure, and £2.50 it can't match, marked not sure, so a person should check." loading="lazy" decoding="async"></figure>
+      <figure class="now-media rv" data-tobi-live><img class="zoom" src="images/tobi-phone.webp" srcset="images/tobi-phone-sm.webp 450w, images/tobi-phone.webp 900w" sizes="(max-width: 900px) 90vw, 320px" width="900" height="1764" alt="TOBi on a phone. A customer asks why their bill is higher. TOBi says the 5 November bill is £12.50 over plan, shows it checked the bill and call log, and lists what it found: £10.00 for eight calls to 0870 numbers, marked sure, and £2.50 it can't match, marked not sure, so a person should check." loading="lazy" decoding="async"></figure>
     </div>
+  </section>
+  <section class="intro intro-team" aria-label="Team">
+    <dl class="meta meta-end">
+      <div class="meta-team"><dt>Team</dt><dd>I led the design system and product design, working with product designers on M&#8209;Pesa and the My Vodafone app, a UX designer on TOBi, and the front&#8209;end team</dd></div>
+    </dl>
   </section>
 </main>
 
 <footer class="foot">
   <nav class="foot-links" aria-label="Contact and links">
-    <a href="#" class="to-top">Back to top ↑</a>
     <a href="https://paultinker.uk/#vodafone">Back to portfolio</a>
     <a href="https://www.linkedin.com/in/paultinker/">LinkedIn</a>
     <a href="https://drive.google.com/file/d/1yZDxT7tIeJI6uo1lH3eONTze7y4aqznz/view?usp=sharing">Download CV (PDF)</a>
     <a href="mailto:hello@paultinker.uk">hello@paultinker.uk</a>
+    <a href="#" class="to-top">Back to top ↑</a>
   </nav>
 </footer>
 
@@ -275,10 +275,16 @@
     <button type="button" class="article-close" aria-label="Close article">&times;</button>
   </div>
   <div class="article-body">
-    <p class="article-summary">InVision's case study on Source: why Vodafone needed one brand across many markets, how Source became the single source of truth for design teams, and what it changed, including up to 40% higher design productivity, faster onboarding for new designers and a connected global design community.</p>
+    <p class="article-summary">InVision's case study on Source: why Vodafone needed one brand across many markets, how Source became the single source of truth for design teams, and what it changed, from faster onboarding for new designers to a connected global design community.</p>
     <img src="images/invision-article.jpg" width="1151" height="3005" loading="lazy" decoding="async" alt="The InVision article, How Vodafone built one of Europe's biggest design systems. Sections: The challenge, unified branding; The solution, a design system; Benefit, 40% increase in design productivity; Benefit, reduced friction during onboarding; Benefit, connected global design community; What's next. Quotes from Vodafone designers in the Group team and local markets, with photos of the Source team.">
   </div>
 </dialog>
-<script src="assets/case-study.js"></script>
+<script src="assets/case-study.js?v=2"></script>
+<script src="assets/tobi-now.js?v=1" defer></script>
+<script src="assets/showcase.js?v=2" defer></script>
+<script src="assets/tobi-faces.js?v=6" defer></script>
+<script src="assets/tobi-badge.js?v=7" defer></script>
+<script src="assets/tobi-play.js?v=7" defer></script>
+<script src="/_shared/transition.js" defer></script>
 </body>
 </html>

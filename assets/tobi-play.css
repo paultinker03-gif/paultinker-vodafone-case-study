@@ -1,0 +1,80 @@
+/* The TOBi live demo in place of the devices still (Paul 2026-10-28): the demo page from vodafone-source
+   (tobi-demo/index.html) runs in a frame, without its own bars; the icons here switch its breakpoint. */
+.tp-play { margin: 40px 0 0; }
+.tp-panel { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: #f8e6e6; color: #333; padding: clamp(28px, 4vw, 48px) var(--gutter) clamp(28px, 4vw, 48px); }
+.tp-bar { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; justify-content: center; padding-bottom: 20px; }
+.tp-seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 999px; box-shadow: inset 0 0 0 1px rgba(51, 51, 51, .16); }
+.tp-seg button { display: grid; place-items: center; width: 42px; height: 36px; padding: 0; border: 0; border-radius: 999px; background: none; color: #333; cursor: pointer; transition: background-color .2s ease, color .2s ease; }
+.tp-seg button:hover { background: rgba(51, 51, 51, .1); }
+.tp-seg button[aria-pressed="true"] { background: #333; color: #fff; }
+.tp-seg button:focus-visible { outline: 2px solid #e60000; outline-offset: 2px; }
+.tp-seg svg { width: 20px; height: 20px; display: block; }
+.tp-frame { display: block; width: 100%; max-width: 1280px; margin: 0 auto; height: clamp(560px, 52vw, 780px); border: 0; background: transparent; }
+@media (max-width: 700px) {
+  .tp-seg[data-k="bp"] { display: none; }
+  .tp-frame { height: 640px; }
+}
+
+/* Labels for the chat's building blocks (tobi-notes.js) */
+.tp-panel { position: relative; }
+.tp-notes { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .4s ease; }
+.tp-notes.on { opacity: 1; }
+.tp-lines { position: absolute; inset: 0; overflow: visible; }
+.tp-lines path { fill: none; stroke: #fff; stroke-opacity: 1; stroke-width: 1; opacity: 0; transition: opacity .4s ease; }
+.tp-lines circle { fill: #fff; opacity: 0; transition: opacity .4s ease; }
+.tp-tag { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 14px; line-height: 1; padding: 7px 12px; border-radius: 999px; background: none; color: #fff; box-shadow: inset 0 0 0 1px #fff; opacity: 0; transition: opacity .4s ease .1s; }
+.tp-tag.in, .tp-lines .in { opacity: 1; }
+@media (max-width: 700px) { .tp-notes { display: none; } }
+@media (prefers-reduced-motion: reduce) { .tp-notes, .tp-tag, .tp-lines * { transition: none; } }
+
+/* TOBi badge, top right of the pink (tobi-badge.js): a white pill with TOBi at the end. Each time it comes on
+   screen there is a beat of nothing, then TOBi boings in, the pill bursts out of nothing from behind him and the
+   words slide in. After the first tap only TOBi's white circle stays. */
+.tp-badge { position: absolute; z-index: 2; isolation: isolate; top: clamp(28px, 4vw, 48px); right: var(--gutter); display: flex; align-items: center; gap: 6px; padding: 6px 6px 6px 26px; transition: padding .5s cubic-bezier(.2, .7, .2, 1), gap .5s ease; }
+.tp-badge::before { content: ""; position: absolute; z-index: -1; inset: 0; border-radius: 999px; background: #fff; box-shadow: 0 8px 24px -12px rgba(120, 0, 0, .3); transform-origin: calc(100% - 44px) 50%; transform: scale(0); }
+.tp-badge-text { margin: 0; display: flex; flex-direction: column; align-items: flex-end; max-width: 12em; overflow: hidden; white-space: nowrap; font-size: 17px; line-height: 1.25; color: #333; opacity: 0; transition: max-width .5s cubic-bezier(.2, .7, .2, 1), opacity .25s ease; }
+html body .tp-badge-k:not(#x) { color: #e60000; font-weight: 700 !important; }
+.tp-badge-face { position: relative; flex: none; width: 76px; height: 76px; border-radius: 50%; background: #fff; transform: scale(0); }
+.tp-badge-face > span { position: absolute; inset: -30px; }
+.tp-badge { --tp-wait: 1.5s; }
+.tp-badge.in .tp-badge-face { animation: tp-boing .9s cubic-bezier(.3, 1.4, .5, 1) var(--tp-wait) both; }
+.tp-badge.in::before { animation: tp-burst .7s cubic-bezier(.2, 1.2, .3, 1) calc(var(--tp-wait) + .3s) both; }
+.tp-badge.in .tp-badge-text { animation: tp-words .45s cubic-bezier(.2, .9, .3, 1.2) calc(var(--tp-wait) + .6s) both; }
+/* TOBi without the kit's red rings (Paul) */
+.tp-pulse g[data-pulse-ring] { display: none; }
+@keyframes tp-boing {
+  0% { transform: scale(0) rotate(-35deg); }
+  35% { transform: scale(1.35) rotate(12deg); }
+  55% { transform: scale(.86) rotate(-7deg); }
+  72% { transform: scale(1.1) rotate(3deg); }
+  86% { transform: scale(.97) rotate(-1deg); }
+  100% { transform: none; }
+}
+@keyframes tp-burst {
+  0% { transform: scale(0); }
+  45% { transform: scale(1.12, 1.2); }
+  68% { transform: scale(.96, .94); }
+  84% { transform: scale(1.02); }
+  100% { transform: none; }
+}
+/* the bar row is as tall as the badge, so the icons line up with TOBi and there is room under him */
+.tp-panel:has(.tp-badge) .tp-bar { min-height: 88px; padding-bottom: 0; margin-bottom: 24px; }
+@media (max-width: 1100px) { .tp-panel:has(.tp-badge) .tp-bar { justify-content: flex-start; } }
+@keyframes tp-words { 0% { opacity: 0; transform: translateX(18px) scale(.9); } 100% { opacity: 1; transform: none; } }
+.tp-badge.used { padding: 6px; gap: 0; }
+.tp-badge.used .tp-badge-text { max-width: 0; opacity: 0 !important; }
+@media (max-width: 700px) {
+  .tp-panel:has(.tp-badge) .tp-bar { min-height: 70px; margin-bottom: 20px; }
+  .tp-badge { padding: 5px 5px 5px 18px; gap: 4px; }
+  .tp-badge::before { transform-origin: calc(100% - 35px) 50%; }
+  .tp-badge.used { padding: 5px; }
+  .tp-badge-text { font-size: 15px; }
+  .tp-badge-face { width: 60px; height: 60px; }
+  .tp-badge-face > span { inset: -24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tp-badge::before { transform: none; }
+  .tp-badge-text { opacity: 1; }
+  .tp-badge-face { transform: none; }
+  .tp-badge, .tp-badge *, .tp-badge::before, .tp-badge svg * { transition: none !important; animation: none !important; }
+}

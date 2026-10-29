@@ -143,7 +143,9 @@
   document.querySelectorAll('.loop-video').forEach((fig) => {
     const v = fig.querySelector('video'), btn = fig.querySelector('.video-toggle');
     let paused = still;
-    const label = () => { btn.textContent = v.paused ? 'Play' : 'Pause'; btn.setAttribute('aria-label', v.paused ? 'Play animation' : 'Pause animation'); };
+    const PAUSE = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+    const PLAY = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7.5-4.5z" fill="currentColor"/></svg>';
+    const label = () => { btn.innerHTML = v.paused ? PLAY : PAUSE; btn.setAttribute('aria-label', v.paused ? 'Play animation' : 'Pause animation'); };
     btn.addEventListener('click', () => { paused = !v.paused; paused ? v.pause() : v.play(); });
     v.addEventListener('play', label); v.addEventListener('pause', label);
     const watch = 'IntersectionObserver' in window && new IntersectionObserver(([e]) => { if (e.isIntersecting && !paused) v.play().catch(() => {}); else if (!e.isIntersecting) v.pause(); }, { threshold: .35 });
