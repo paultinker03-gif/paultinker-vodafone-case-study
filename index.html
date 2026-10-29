@@ -19,7 +19,7 @@
 <link rel="icon" href="assets/favicon.png">
 <link rel="preload" href="assets/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/case-study.css?v=2">
-<link rel="stylesheet" href="assets/vodafone.css?v=43">
+<link rel="stylesheet" href="assets/vodafone.css?v=45">
 <link rel="stylesheet" href="assets/tobi-play.css?v=14">
 <!-- paultinker 2026: content slides in on arrival (classes set before the first paint) -->
 <script>(function(h){if(matchMedia('(max-width: 700px), (max-height: 500px) and (orientation: landscape)').matches)return;h.classList.add('pt-intro');if(/[?&]via=home/.test(location.search))h.classList.add('pt-from-home');setTimeout(function(){h.classList.add('pt-go')},2500);})(document.documentElement);</script>
@@ -46,7 +46,7 @@
 
 <main id="main">
   <figure class="bleed" data-pt-scene>
-    <picture><source media="(min-width: 701px) and (min-height: 501px), (min-width: 701px) and (orientation: portrait)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><img src="images/hero-phone.webp" srcset="images/hero-phone-600.webp 600w, images/hero-phone.webp 1200w" sizes="100vw" width="1200" height="1500" alt="Phones showing TOBi, Vodafone's AI chatbot, and the My Vodafone app: the app's welcome and home screens, TOBi saying hello, and TOBi explaining why a bill is higher." fetchpriority="high"></picture>
+    <picture><source media="(min-width: 701px) and (min-height: 501px), (min-width: 701px) and (orientation: portrait)" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><img src="images/hero-phone.webp?v=2" srcset="images/hero-phone-600.webp?v=2 600w, images/hero-phone.webp?v=2 1200w" sizes="100vw" width="1200" height="1500" alt="Phones showing TOBi, Vodafone's AI chatbot, and the My Vodafone app: the app's welcome and home screens, TOBi saying hello, and TOBi explaining why a bill is higher." fetchpriority="high"></picture>
     <figcaption class="rebuild-note">TOBi and Source: Vodafone's AI chatbot on phone and tablet, built from the reusable components of Source, the design system that grew out of it.</figcaption>
   </figure>
 
@@ -93,6 +93,10 @@
         <div class="tp-bar"><div class="tp-seg" data-k="bp" role="group" aria-label="Screen size"><button type="button" data-bp="mobile" aria-label="Mobile" title="Mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.8" width="10" height="18.4" rx="2.2"/><path d="M11 18h2"/></svg></button><button type="button" data-bp="tablet" aria-label="Tablet" title="Tablet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M11 18h2"/></svg></button><button type="button" data-bp="desktop" aria-label="Desktop" title="Desktop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.8" y="4.5" width="18.4" height="12" rx="1.6"/><path d="M8.5 20h7M12 16.5V20"/></svg></button></div><div class="tp-seg"><button type="button" data-act="restart" aria-label="Restart the chat" title="Restart the chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3M4.5 4.5v3.7h3.7"/></svg></button></div></div>
         <iframe class="tp-frame" data-src="tobi-demo/index.html?v=6" title="TOBi live demo: a working chat with Vodafone's chatbot" loading="lazy"></iframe>
       </div>
+    </figure>
+    <!-- phones (portrait and landscape): the devices still instead of the live demo (Paul 2026-10-29) -->
+    <figure class="tp-still rv">
+      <img src="images/tobi-devices-tight-1600.webp" srcset="images/tobi-devices-tight-1600.webp 1600w, images/tobi-devices-tight-3200.webp 3200w" sizes="100vw" width="1600" height="701" alt="TOBi, Vodafone's chatbot, on a phone, a tablet and a desktop: a chat about average spend, plan recommendations and an upgrade offer." loading="lazy" decoding="async">
     </figure>
     <div class="text rv text-follow">
       <p>I introduced a component and Design System approach specifically for conversational UI: message bubbles, notifications, options, states, content and actions became reusable building blocks that could be assembled into complete journeys, rather than designed from scratch each time. That made the work faster to design, easier to iterate and more consistent as the number of journeys grew. Plans, bills, phones, spend and call-backs each became a card type that could drop into any journey.</p>

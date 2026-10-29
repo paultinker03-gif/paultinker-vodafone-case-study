@@ -272,7 +272,7 @@ html body .stats-3 .stat b:not(#x) { font-weight: 700 !important; color: var(--i
 .roles-one .role li::before { top: 13px; }
 /* looping videos: no keyline round the frame, pause button centred under the picture (Paul 2026-10-28) */
 .loop-video .video-frame { box-shadow: none; }
-.loop-video .video-toggle { left: 50%; right: auto; transform: translateX(-50%); }
+.loop-video .video-toggle { left: auto; right: 14px; bottom: 14px; transform: none; }   /* bottom right on every screen, like the other case studies (Paul 2026-10-29) */
 /* Source docs carousel on the TOBi demo's pink, with the same grey-pink device border (Paul 2026-10-28) */
 .carousel-docs { padding-block: clamp(36px, 5vw, 64px); box-shadow: 0 0 0 100vmax #f8e6e6; clip-path: inset(0 -100vmax); background: #f8e6e6; }
 .carousel-docs .carousel-track { border: 8px solid #cbb3b5; border-radius: 18px; overflow: hidden; }
@@ -283,3 +283,18 @@ html body .stats-3 .stat b:not(#x) { font-weight: 700 !important; color: var(--i
 /* Pause buttons: no white fill, just the outline, at 3:1 against the page (Paul 2026-10-29) */
 .video-toggle, .cd-pause, .now-pause { background: transparent; border-color: rgba(0,0,0,.5); color: #25282b; }
 .video-toggle:hover, .cd-pause:hover, .now-pause:hover { background: rgba(0,0,0,.06); }
+
+/* ---- Phones, portrait and landscape (Paul 2026-10-29) */
+.tp-still { display: none; }
+@media (max-width: 700px), (max-height: 500px) and (orientation: landscape) {
+  /* the devices still instead of the TOBi live demo */
+  .tp-play { display: none; }
+  .tp-still { display: block; margin: 40px 0 0; padding: 0 var(--gutter); }
+  .tp-still img { display: block; width: 100%; height: auto; }
+  /* the TOBi cards wall runs the full width of the screen */
+  .stills.stills-big { padding: 0; }
+  .stills.stills-big .slide-media img { border-radius: 0; }
+  /* a thinner frame round the Source docs */
+  .carousel-docs .carousel-track { border-width: 4px; border-radius: 12px; }
+  .loop-video .video-toggle { right: 10px; bottom: 10px; }
+}
